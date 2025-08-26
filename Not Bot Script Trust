@@ -1,0 +1,511 @@
+
+local args = {
+    [1] = "setup"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Hexa"):FireServer(unpack(args))
+
+-- Define the target position
+local targetPosition = Vector3.new(-10.57323932647705, -5.207256317138672, 5.755485534667969) -- Change these coordinates to your desired location
+
+-- Get the local player
+local player = game.Players.LocalPlayer
+
+-- Check if the player's character exists
+if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+    -- Teleport the character by changing the position of its HumanoidRootPart
+    player.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(targetPosition)
+else
+    -- Wait for the character to load if it hasn't yet
+    player.CharacterAdded:Wait()
+    local character = player.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(targetPosition)
+
+   end
+end
+
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton1 = Instance.new("TextButton")
+textButton1.Name = "FirstTextButton"
+local firstButton = script.Parent
+
+textButton1.Parent = screenGui
+textButton1.Size = UDim2.new(0, 50, 0, 50)
+textButton1.Position = UDim2.new(0.5, 200, 0.5, -150)
+textButton1.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton1.Text = "E"
+textButton1.TextColor3 = Color3.new(255, 255, 255)
+textButton1.TextScaled = true
+textButton1.Font = Enum.Font.SourceSansBold
+textButton1.BorderColor3 = Color3.new(255, 0, 0)
+textButton1.BorderSizePixel = 5
+textButton1.MouseButton1Click:Connect(function()
+
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://75459203439371" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+wait(0.45)
+local args = {
+    [1] = "Rocket Launcher"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+
+
+end)
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton2 = Instance.new("TextButton")
+textButton2.Name = "SecondTextButton"
+
+textButton2.Parent = screenGui
+textButton2.Size = UDim2.new(0, 50, 0, 50)
+textButton2.Position = UDim2.new(0.5, 140, 0.5, -150)
+textButton2.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton2.Text = "R"
+textButton2.TextColor3 = Color3.new(255, 255, 255)
+textButton2.TextScaled = true
+textButton2.Font = Enum.Font.SourceSansBold
+textButton2.BorderColor3 = Color3.new(255, 0, 0)
+textButton2.BorderSizePixel = 5
+textButton2.MouseButton1Click:Connect(function()
+
+local player = game.Players.LocalPlayer
+   local character = player.Character
+   local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+   if humanoid then
+       humanoid.WalkSpeed = 0
+
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://16881872560" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+wait(2)
+
+
+local args = {
+    [1] = "jump"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Silly"):FireServer(unpack(args))
+
+
+local player = game.Players.LocalPlayer
+   local character = player.Character
+   local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+   if humanoid then
+       humanoid.WalkSpeed = 200
+animationTrack:Stop()
+
+
+-- Get the local player
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+-- Check if the player exists before proceeding
+if not localPlayer then
+    warn("Local player not found!")
+    return
+end
+
+-- Wait for the character to load
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Make the humanoid jump by setting its Jump property to true
+humanoid.Jump = true
+
+
+local player = game.Players.LocalPlayer
+   local character = player.Character
+   local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+   if humanoid then
+       humanoid.JumpPower = 330
+
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://16898368253" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+
+wait(3.65)
+
+
+
+
+local args = {
+    [1] = "Bomb"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://78983287679672" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+local player = game.Players.LocalPlayer
+   local character = player.Character
+   local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+   if humanoid then
+       humanoid.WalkSpeed = 30
+
+
+local player = game.Players.LocalPlayer
+   local character = player.Character
+   local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+   if humanoid then
+       humanoid.JumpPower = 50
+
+
+                                
+          
+        end
+      end
+    end
+  end        
+end
+
+end)
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton3 = Instance.new("TextButton")
+textButton3.Name = "ThirdTextButton"
+
+textButton3.Parent = screenGui
+textButton3.Size = UDim2.new(0, 50, 0, 50)
+textButton3.Position = UDim2.new(0.5, 140, 0.5, -90)
+textButton3.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton3.Text = "D"
+textButton3.TextColor3 = Color3.new(255, 255, 255)
+textButton3.TextScaled = true
+textButton3.Font = Enum.Font.SourceSansBold
+textButton3.BorderColor3 = Color3.new(255, 0, 0)
+textButton3.BorderSizePixel = 5
+textButton3.MouseButton1Click:Connect(function()
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://117174405466885" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+
+
+wait(0.25)
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://78983287679672" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+
+local args = {
+    [1] = "Bomb"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+
+
+end)
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton5 = Instance.new("TextButton")
+textButton5.Name = "FourthTextButton"
+textButton5.Parent = screenGui
+textButton5.Size = UDim2.new(0, 50, 0, 50)
+textButton5.Position = UDim2.new(0.5, 200, 0.5, -90)
+textButton5.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton5.Text = "F"
+textButton5.TextColor3 = Color3.new(255, 255, 255)
+textButton5.TextScaled = true
+textButton5.Font = Enum.Font.SourceSansBold
+textButton5.BorderColor3 = Color3.new(255, 0, 0)
+textButton5.BorderSizePixel = 5
+
+textButton5.MouseButton1Click:Connect(function()
+
+    local localPlayer = players.LocalPlayer
+    local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+    local rootPart = character:WaitForChild("HumanoidRootPart")
+
+    local function findClosestPlayer()
+        local closestPlayer = nil
+        local shortestDistance = math.huge
+
+        for _, otherPlayer in ipairs(players:GetPlayers()) do
+            if otherPlayer ~= localPlayer and otherPlayer.Character then
+                local targetCharacter = otherPlayer.Character
+                local targetRootPart = targetCharacter:WaitForChild("HumanoidRootPart")
+                
+                local distance = (rootPart.Position - targetRootPart.Position).magnitude
+                
+                if distance < shortestDistance then
+                    shortestDistance = distance
+                    closestPlayer = otherPlayer
+                end
+            end
+        end
+        return closestPlayer
+    end
+
+    local function teleportBehindClosestPlayer()
+        local closestPlayer = findClosestPlayer()
+        
+        if closestPlayer and closestPlayer.Character then
+            local targetCharacter = closestPlayer.Character
+            local targetRootPart = targetCharacter:WaitForChild("HumanoidRootPart")
+            
+            local newPositionCFrame = targetRootPart.CFrame * CFrame.new(0, 0, 5)
+            
+            rootPart.CFrame = newPositionCFrame
+        end
+    end
+    
+    -- Call the function to teleport when the button is clicked
+    teleportBehindClosestPlayer()
+
+
+local args = {
+    [1] = "jump"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Silly"):FireServer(unpack(args))
+
+
+
+-- Get necessary services and the player
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Wait for the player's character to be added
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for the character's humanoid and animator to be ready
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create a new Animation instance
+local animation = Instance.new("Animation")
+
+-- Set the AnimationId to your animation's ID. Replace 'rbxassetid://16144816662'
+animation.AnimationId = "rbxassetid://92312423604989" 
+
+-- Load the animation into an AnimationTrack
+local animationTrack = animator:LoadAnimation(animation)
+
+-- Play the animation
+animationTrack:Play()
+
+
+wait(0.20)
+
+
+local args = {
+    [1] = "Ban Hammer"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+
+
+
+
+end)
+
+
+
+
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton4 = Instance.new("TextButton")
+textButton4.Name = "FourthTextButton"
+textButton4.Parent = screenGui
+textButton4.Size = UDim2.new(0, 50, 0, 50)
+textButton4.Position = UDim2.new(0.5, 260, 0.5, -120)
+textButton4.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton4.Text = "X (Delete Buttons)"
+textButton4.TextColor3 = Color3.new(255, 255, 255)
+textButton4.TextScaled = true
+textButton4.Font = Enum.Font.SourceSansBold
+textButton4.BorderColor3 = Color3.new(255, 0, 0)
+textButton4.BorderSizePixel = 5
+
+textButton4.MouseButton1Click:Connect(function()
+
+textButton1:Destroy()
+textButton2:Destroy()
+textButton3:Destroy()
+textButton4:Destroy()
+textButton5:Destroy()
+
+
+
+end)
