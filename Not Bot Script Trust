@@ -475,6 +475,179 @@ end)
 
 
 
+
+
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton6 = Instance.new("TextButton")
+textButton6.Name = "HitTextButton"
+textButton6.Parent = screenGui
+textButton6.Size = UDim2.new(0, 50, 0, 50)
+textButton6.Position = UDim2.new(0.5, 85, 0.5, -90)
+textButton6.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+textButton6.Text = "Punch"
+textButton6.TextColor3 = Color3.new(255, 255, 255)
+textButton6.TextScaled = true
+textButton6.Font = Enum.Font.SourceSansBold
+textButton6.BorderColor3 = Color3.new(255, 0, 0)
+textButton6.BorderSizePixel = 5
+
+textButton6.MouseButton1Click:Connect(function()
+    -- Get the local player and their character
+    local localPlayer = players.LocalPlayer
+    local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+    
+    -- Check if the character and humanoid exist
+    if not character or not character:FindFirstChild("Humanoid") then
+        warn("Character or Humanoid not found!")
+        return
+    end
+
+    local humanoid = character:FindFirstChild("Humanoid")
+    local animator = humanoid:WaitForChild("Animator")
+
+    -- Define the punch animation
+    local punchAnim = Instance.new("Animation")
+    punchAnim.AnimationId = "rbxassetid://109511274923523" -- Use your punch animation ID here
+
+    local punchTrack = animator:LoadAnimation(punchAnim)
+    
+    -- Play the punch animation
+    punchTrack:Play()
+
+    -- The main function to find and hit the closest player
+    local function getClosestPlayer(startPosition, maxDistance)
+        local closestPlayer = nil
+        local shortestDistance = maxDistance
+
+        for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+            if otherPlayer ~= localPlayer and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                local distance = (otherPlayer.Character.HumanoidRootPart.Position - startPosition.Position).Magnitude
+                if distance < shortestDistance then
+                    shortestDistance = distance
+                    closestPlayer = otherPlayer
+                end
+            end
+        end
+        return closestPlayer
+    end
+
+    -- Find the closest player within a 50 stud radius
+    local radius = 50
+    local closestPlayer = getClosestPlayer(character.HumanoidRootPart, radius)
+
+    -- If a player is found, fire the remote event
+    if closestPlayer then
+        local args = {
+            [1] = closestPlayer.Character.Head
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(unpack(args))
+        print("Closest player found! Fired event for: " .. closestPlayer.Name)
+    else
+        print("No player found within the specified radius.")
+    end
+end)
+
+
+
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TestGui"
+screenGui.Parent = playerGui
+
+local textButton7 = Instance.new("TextButton")
+textButton7.Name = "FourthTextButton"
+textButton7.Parent = screenGui
+textButton7.Size = UDim2.new(0, 50, 0, 50)
+textButton7.Position = UDim2.new(0.5, 85, 0.5, -150)
+textButton7.BackgroundColor3 = Color3.new(0.389, 0, 0)
+
+
+textButton7.Text = "Brutal Punch (Requires Charge)"
+textButton7.TextColor3 = Color3.new(255, 255, 255)
+textButton7.TextScaled = true
+textButton7.Font = Enum.Font.SourceSansBold
+textButton7.BorderColor3 = Color3.new(255, 0, 0)
+textButton7.BorderSizePixel = 5
+
+textButton7.MouseButton1Click:Connect(function()
+
+
+
+
+
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Player = Players.LocalPlayer
+local Radius = 50 -- You can adjust this value
+
+local function getClosestPlayer(centerPos)
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= Player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local distance = (player.Character.HumanoidRootPart.Position - centerPos).Magnitude
+            if distance <= Radius and distance < shortestDistance then
+                shortestDistance = distance
+                closestPlayer = player
+            end
+        end
+    end
+    return closestPlayer
+end
+
+local targetPlayer = getClosestPlayer(Player.Character.HumanoidRootPart.Position)
+
+if targetPlayer and targetPlayer.Character then
+    local args = {
+        targetPlayer.Character:FindFirstChild("Left Leg"),
+        true
+    }
+    ReplicatedStorage:WaitForChild("GeneralHit"):FireServer(unpack(args))
+end
+
+-- Get the local player and their character
+    local localPlayer = players.LocalPlayer
+    local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+    
+    -- Check if the character and humanoid exist
+    if not character or not character:FindFirstChild("Humanoid") then
+        warn("Character or Humanoid not found!")
+        return
+    end
+
+    local humanoid = character:FindFirstChild("Humanoid")
+    local animator = humanoid:WaitForChild("Animator")
+
+    -- Define the punch animation
+    local punchAnim = Instance.new("Animation")
+    punchAnim.AnimationId = "rbxassetid://109511274923523" -- Use your punch animation ID here
+
+    local punchTrack = animator:LoadAnimation(punchAnim)
+    
+    -- Play the punch animation
+    punchTrack:Play()
+
+
+end)
+
+
+
+
+
 local players = game:GetService("Players")
 local player = players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -505,7 +678,8 @@ textButton2:Destroy()
 textButton3:Destroy()
 textButton4:Destroy()
 textButton5:Destroy()
-
+textButton6:Destroy()
+textButton7:Destroy()
 
 
 end)
