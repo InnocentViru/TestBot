@@ -1,4 +1,3 @@
-
 local args = {
     [1] = "setup"
 }
@@ -541,7 +540,7 @@ textButton6.MouseButton1Click:Connect(function()
     end
 
     -- Find the closest player within a 50 stud radius
-    local radius = 50
+    local radius = 15
     local closestPlayer = getClosestPlayer(character.HumanoidRootPart, radius)
 
     -- If a player is found, fire the remote event
@@ -645,6 +644,35 @@ end
 end)
 
 
+-- Create a new ScreenGui instance
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "MyScreenGui"
+
+-- Create a new TextLabel instance
+local textLabel1 = Instance.new("TextLabel")
+textLabel1.Name = "MyTextLabel"
+
+-- Set the TextLabel's properties
+textLabel1.Size = UDim2.new(0.2, 0, 0.1, 0) -- 50% width, 20% height
+textLabel1.Position = UDim2.new(0.5, 85, 0.5, -30) -- Top-left corner
+textLabel1.BackgroundTransparency = 0 -- Make the background transparent
+textLabel1.Text = "Apex Destroyer Made By Virus Scripts"
+textLabel1.TextColor3 = Color3.new(1, 1, 1) -- White text color
+textLabel1.TextScaled = true -- Scales the text to fit the label size
+textLabel1.Font = Enum.Font.SourceSansBold
+textLabel1.BackgroundColor3 = Color3.new(0.389, 0, 0)
+textLabel1.BorderSizePixel = 5
+textLabel1.BorderColor3 = Color3.new(255, 0, 0)
+
+-- Parent the TextLabel to the ScreenGui
+
+
+textLabel1.Parent = screenGui
+
+-- Get the player's PlayerGui and parent the ScreenGui to it
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+screenGui.Parent = playerGui
 
 
 
@@ -663,13 +691,13 @@ textButton4.Size = UDim2.new(0, 50, 0, 50)
 textButton4.Position = UDim2.new(0.5, 260, 0.5, -120)
 textButton4.BackgroundColor3 = Color3.new(0.389, 0, 0)
 
-
 textButton4.Text = "X (Delete Buttons)"
 textButton4.TextColor3 = Color3.new(255, 255, 255)
 textButton4.TextScaled = true
 textButton4.Font = Enum.Font.SourceSansBold
 textButton4.BorderColor3 = Color3.new(255, 0, 0)
 textButton4.BorderSizePixel = 5
+
 
 textButton4.MouseButton1Click:Connect(function()
 
@@ -680,6 +708,9 @@ textButton4:Destroy()
 textButton5:Destroy()
 textButton6:Destroy()
 textButton7:Destroy()
+textLabel1:Destroy()
 
 
 end)
+
+
